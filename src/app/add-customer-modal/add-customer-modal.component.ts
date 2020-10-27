@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Form, FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { CustomerService } from '../customer.service';
 
 @Component({
   selector: 'app-add-customer-modal',
@@ -9,6 +10,7 @@ import { Form, FormBuilder, FormGroup, FormControl, Validators } from '@angular/
 export class AddCustomerModalComponent implements OnInit {
   opened = false;
   submitted = false;
+  showToast = false;
 
   cleaveOptions = {
     date: true,
@@ -18,7 +20,8 @@ export class AddCustomerModalComponent implements OnInit {
 
   addCustomerForm: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private customerService: CustomerService) { }
+
   get f(): any { return this.addCustomerForm.controls; }
 
   ngOnInit(): void {
@@ -54,10 +57,11 @@ export class AddCustomerModalComponent implements OnInit {
 
     // stop here if form is invalid
     if (this.addCustomerForm.valid) {
+      this.customerService.addCustomer(this.addCustomerForm.value);
       this.addCustomerForm.reset();
+      this.showToast = true;
       this.opened = false;
       this.submitted = false;
-      //this.addCustomerForm.value
     }
   }
 }

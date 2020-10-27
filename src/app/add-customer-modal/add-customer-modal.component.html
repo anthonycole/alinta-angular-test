@@ -22,3 +22,8 @@
     </ng-template>
   </form>
 </ngl-modal>
+<div class="slds-notify_container">
+  <ngl-toast *ngIf="showToast" variant="success" (close)="showToast = false;" duration="5000">
+    <h2 class="slds-text-heading_small">Customer Successfully Added</h2>
+  </ngl-toast>
+</div>
