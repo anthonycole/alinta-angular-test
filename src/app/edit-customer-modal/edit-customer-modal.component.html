@@ -1,0 +1,26 @@
+<button type="button" nglButtonIcon iconName="action:edit" (click)="open()" title="Edit Customer"></button>
+<ngl-modal [header]="'Edit Customer'" [(open)]="opened">
+  <form [formGroup]="editCustomerForm" id="edit-customer" (ngSubmit)="save()">
+    <div class="slds-p-around_medium">
+      <div class="slds-grid slds-grid_pull-padded slds-grid_vertical-align-center">
+        <div class="slds-col_padded">
+          <ngl-input label="First Name" [error]="submitted && f.firstName.errors ? 'Required': null">
+            <input ngl type="input" formControlName="firstName" placeholder="Enter a first name">
+          </ngl-input>
+          <ngl-input label="Last Name" [error]="submitted && f.lastName.errors ? 'Required': null">
+            <input ngl type="input" formControlName="lastName" placeholder="Enter a last name">
+          </ngl-input>
+        </div>
+      </div>
+    </div>
+    <ng-template nglModalFooter>
+      <button class="slds-button slds-button_neutral" (click)="cancel()">Cancel</button>
+      <button type="submit" class="slds-button slds-button_brand" form="edit-customer">Save</button>
+    </ng-template>
+  </form>
+</ngl-modal>
+<div class="slds-notify_container">
+  <ngl-toast *ngIf="showToast" variant="success" (close)="showToast = false;" duration="5000">
+    <h2 class="slds-text-heading_small">Customer Successfully Updated</h2>
+  </ngl-toast>
+</div>

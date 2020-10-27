@@ -31,9 +31,10 @@ export class CustomerService {
     this.setCustomers(updatedCustomers);
   }
 
-  editCustomer(id: number, updatedCustomer: Customer): void {
-    const customers = this.getCustomers();
-    customers[id] = updatedCustomer;
+  editCustomer(index: number, updatedCustomer: Customer): void {
+    let customers = this.getCustomers();
+    customers[index] = updatedCustomer;
+    console.log("CUSTOMERS", customers);
     this.setCustomers(customers);
   }
 

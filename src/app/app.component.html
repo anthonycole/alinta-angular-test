@@ -33,7 +33,13 @@
             {{value | date}}
           </ng-template>
       </ngl-datatable-column>
-      <ng-template nglNoRowsOverlay>No customers found</ng-template>
+      <ngl-datatable-column heading="Actions">
+          <ng-template nglDatatableCell let-index="index" let-row="row">
+            <app-edit-customer-modal [index]="index" [customer]="row" class="slds-m-right_small"></app-edit-customer-modal>
+            <button type="button" (click)="deleteCustomer(index)" nglButtonIcon iconName="utility:delete" title="Delete Customer"></button>
+          </ng-template>
+      </ngl-datatable-column>
+      <ng-template nglNoRowsOverlay>No customers found.</ng-template>
     </table>
   </div>
 </div>

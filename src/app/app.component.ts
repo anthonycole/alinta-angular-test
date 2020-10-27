@@ -27,6 +27,10 @@ export class AppComponent implements OnInit {
     });
   }
 
+  deleteCustomer(id): void {
+    this.customerService.removeCustomer(id);
+  }
+
   search(): void {
     const term = this.searchTerm;
 
