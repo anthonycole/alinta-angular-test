@@ -34,7 +34,6 @@ export class CustomerService {
   editCustomer(index: number, updatedCustomer: Customer): void {
     let customers = this.getCustomers();
     customers[index] = updatedCustomer;
-    console.log("CUSTOMERS", customers);
     this.setCustomers(customers);
   }
 
