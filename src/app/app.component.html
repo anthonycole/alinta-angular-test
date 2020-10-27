@@ -10,6 +10,12 @@
 <div class="slds-grid slds-gutters slds-p-around_medium">
   <div class="slds-col">
     <app-add-customer-modal></app-add-customer-modal>
+    <table class="slds-table_bordered slds-max-medium-table_stacked-horizontal slds-table_fixed-layout slds-m-top_medium" ngl-datatable [data]="customers" trackByKey="firstName">
+      <ngl-datatable-column heading="First Name" key="firstName"></ngl-datatable-column>
+      <ngl-datatable-column heading="Last Name" key="lastName" sortable></ngl-datatable-column>
+      <ngl-datatable-column heading="Date of Birth" key="dateOfBirth"></ngl-datatable-column>
+      <ng-template nglNoRowsOverlay>No customers currently available</ng-template>
+    </table>
   </div>
 </div>
 

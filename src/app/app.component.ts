@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomerService } from './customer.service';
+import { Customer } from './customer';
+import { INglDatatableSort } from 'ng-lightning';
+
 
 @Component({
   selector: 'app-root',
@@ -8,7 +11,7 @@ import { CustomerService } from './customer.service';
 })
 export class AppComponent implements OnInit {
   title = 'alinta-angular-test';
-  customers = [];
+  customers: Customer[] = [];
   customerService;
 
   constructor(customerService: CustomerService) {
@@ -17,8 +20,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.customerService.getAllCustomers().subscribe(customers => {
-      console.log('Customers', customers);
+      this.customers = customers;
     });
   }
-
 }
