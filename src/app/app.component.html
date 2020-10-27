@@ -2,7 +2,7 @@
   <div class="slds-context-bar__primary">
     <div class="slds-context-bar__item slds-context-bar__dropdown-trigger slds-dropdown-trigger slds-dropdown-trigger_click slds-no-hover">
       <span class="slds-context-bar__label-action slds-context-bar__app-name">
-        <span class="slds-truncate" title="App Name">Customers</span>
+        <span class="slds-truncate" title="App Name">Customer Portal</span>
       </span>
     </div>
   </div>
@@ -42,6 +42,11 @@
       <ng-template nglNoRowsOverlay>No customers found.</ng-template>
     </table>
   </div>
+</div>
+<div class="slds-notify_container">
+  <ngl-toast *ngIf="showDeleteToast" variant="success" (close)="showDeleteToast = false;" duration="5000">
+    <h2 class="slds-text-heading_small">Customer Successfully Deleted</h2>
+  </ngl-toast>
 </div>
 
 <router-outlet></router-outlet>

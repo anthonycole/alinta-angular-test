@@ -13,6 +13,7 @@ export class AppComponent implements OnInit {
   title = 'alinta-angular-test';
   customers: Customer[] = [];
   customersSearch: Customer[] = [];
+  showDeleteToast = false;
   customerService;
   searchTerm = '';
 
@@ -29,6 +30,7 @@ export class AppComponent implements OnInit {
 
   deleteCustomer(id): void {
     this.customerService.removeCustomer(id);
+    this.showDeleteToast = true;
   }
 
   search(): void {
