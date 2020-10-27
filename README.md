@@ -3,6 +3,7 @@ This project was created for an interview for Alinta Energy. It was generated wi
 
 # What I would have done with more time.
 * Write more tests
+* Make the customer search use an observable pipe
 * Handle error validation on the date field more thoroughly
 * Add sorting by first/last name on customer table
 
