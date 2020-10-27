@@ -1,0 +1,24 @@
+<button type="button" nglButton (click)="open()">Add New Customer</button>
+<ngl-modal [header]="'Add New Customer'" [(open)]="opened">
+  <form [formGroup]="addCustomerForm" id="add-customer" (ngSubmit)="save()">
+    <div class="slds-p-around_medium">
+      <div class="slds-grid slds-grid_pull-padded slds-grid_vertical-align-center">
+        <div class="slds-col_padded">
+          <ngl-input label="First Name" [error]="submitted && f.firstName.errors ? 'Required': null">
+            <input ngl type="input" formControlName="firstName" placeholder="Enter a first name">
+          </ngl-input>
+          <ngl-input label="Last Name" [error]="submitted && f.lastName.errors ? 'Required': null">
+            <input ngl type="input" formControlName="lastName" placeholder="Enter a last name">
+          </ngl-input>
+          <ngl-datepicker-input formControlName="dateOfBirth" required label="Date of Birth" [class.slds-has-error]="submitted && f.dateOfBirth.errors">
+            <input nglDatepickerInput type="text">
+          </ngl-datepicker-input>
+        </div>
+      </div>
+    </div>
+    <ng-template nglModalFooter>
+      <button class="slds-button slds-button_neutral" (click)="cancel()">Cancel</button>
+      <button type="submit" class="slds-button slds-button_brand" form="add-customer">Save</button>
+    </ng-template>
+  </form>
+</ngl-modal>
