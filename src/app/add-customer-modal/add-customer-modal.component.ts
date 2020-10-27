@@ -11,13 +11,6 @@ export class AddCustomerModalComponent implements OnInit {
   opened = false;
   submitted = false;
   showToast = false;
-
-  cleaveOptions = {
-    date: true,
-    delimiter: '/',
-    datePattern: ['Y', 'm', 'd']
-  };
-
   addCustomerForm: FormGroup;
 
   constructor(private fb: FormBuilder, private customerService: CustomerService) { }

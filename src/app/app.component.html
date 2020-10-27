@@ -7,18 +7,33 @@
     </div>
   </div>
 </div>
-<div class="slds-grid slds-gutters slds-p-around_medium">
+<div class="slds-grid slds-gutters slds-p-around_medium slds-p-bottom_none">
+ <div class="sdls-col">
   <div class="slds-col">
     <app-add-customer-modal></app-add-customer-modal>
+  </div>
+ </div>
+</div>
+<div class="slds-grid slds-gutters slds-p-around_medium slds-p-bottom_none">
+ <div class="sdls-col">
+    <div class="slds-col">
+      <ngl-input>
+        <input ngl name="searchTerm" type="input" [(ngModel)]="searchTerm" (ngModelChange)="search()" placeholder="Search">
+      </ngl-input>
+    </div>
+  </div>
+</div>
+<div class="slds-grid slds-gutters slds-p-around_medium">
+  <div class="slds-col">
     <table class="slds-table_bordered slds-max-medium-table_stacked-horizontal slds-table_fixed-layout slds-m-top_medium" ngl-datatable [data]="customers" trackByKey="firstName">
       <ngl-datatable-column heading="First Name" key="firstName"></ngl-datatable-column>
-      <ngl-datatable-column heading="Last Name" key="lastName" sortable></ngl-datatable-column>
+      <ngl-datatable-column heading="Last Name" key="lastName"></ngl-datatable-column>
       <ngl-datatable-column heading="Date of Birth" key="dateOfBirth">
           <ng-template nglDatatableCell let-value>
             {{value | date}}
           </ng-template>
       </ngl-datatable-column>
-      <ng-template nglNoRowsOverlay>No customers currently available</ng-template>
+      <ng-template nglNoRowsOverlay>No customers found</ng-template>
     </table>
   </div>
 </div>
